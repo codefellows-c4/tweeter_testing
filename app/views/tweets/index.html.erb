@@ -1,0 +1,17 @@
+<h1>Tweeter</h1>
+
+<%= link_to "Post a Tweet", new_tweet_path %>
+<br>
+<%= form_tag root_path, method: :get do %>
+  <%= text_field_tag :query, @query, placeholder: 'Search' %>
+  <%= submit_tag "Search" %>
+<% end %>
+<br>
+
+<% @tweets.each do |tweet| %>
+  <div>
+    <%= highlight tweet.body, @query %>
+    - <%= tweet.created_at %>
+    by <strong><%= tweet.author %></strong>
+  </div>
+<% end %>
