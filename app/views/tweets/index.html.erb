@@ -10,7 +10,7 @@
 
 <% @tweets.each do |tweet| %>
   <div>
-    <%= highlight tweet.body, @query %>
+    <%= highlight (tweet.body || ""), @query %>
     - <%= tweet.created_at %>
     by <strong><%= tweet.author %></strong>
   </div>
